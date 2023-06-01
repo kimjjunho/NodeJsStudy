@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+</head>
+<body>
+  <input id="cat" type="text">
+  <button onclick="getSound()">테스트</button>
+  <script>
+    function getSound() {
+      const cat = document.getElementById('cat').value
+      fetch(`http://localhost:3000/sound/${cat}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        document.getElementById('sound').value = data
+      });
+    }
+  </script>
+</body>
+</html>
